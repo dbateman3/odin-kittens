@@ -10,9 +10,11 @@ class KittensController < ApplicationController
 	def create
 		@kitten = Kitten.new(kitten_params)
 		@kitten.save
+		redirect_to @kitten
 	end
 
 	def show
+		@kitten = Kitten.find(params[:id])
 	end
 
 	def edit
