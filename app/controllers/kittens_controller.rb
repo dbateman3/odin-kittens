@@ -18,14 +18,19 @@ class KittensController < ApplicationController
 	end
 
 	def edit
+		@kitten = Kitten.find(params[:id])
 	end
 
 	def update
+		@kitten = Kitten.find(params[:id])
 		@kitten.update(kitten_params)
+		redirect_to @kitten
 	end
 
 	def destroy
+		@kitten = Kitten.find(params[:id])
 		@kitten.destroy
+		redirect_to root_url
 	end
 
 	private
